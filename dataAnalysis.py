@@ -11,45 +11,19 @@ import streamlit as st
 # --- Device name mapping ---
 # Mapping from AS codes to friendly names
 DEVICE_LABELS = {
-    'AS01': "Zabriskie-Main",
-    'AS02': "Kitchen-Main",
-    'AS03': "Women's Restroom-Main",
-    'AS04': "Music Room-Main",
-    'AS05': "Children's Wing - Room 2-Main",
-    'AS06': "Children's Wing - Room 5-Main",
-    'AS07': "CE Room-Main",
-    'AS08': "Owen Library-Main",
-    'AS09': "Reception Room-Main",
-    'AS10': "Outdoor Reference",
-    'AS11': "Tower-Main",
-    'AS12': "Robing Access-Main",
-    'AS13': "Men's Robing-Main",
-    'AS14': "Women's Robing-Main",
-    'AS15': "Robing-Attic",
-    'AS16': "East Organ-Attic",
-    'AS17': "Front Porch-Attic",
-    'AS18': "Owen Library-Attic",
-    'AS19': "CE Room-Attic",
-    'AS20': "Kitchen-Attic",
-    'AS21': "Music Room-Attic",
-    'AS22': "Children's Wing - Room 5-Attic",
-    'AS23': "Zabriskie-Attic",
-    'AS24': "Zabriskie - North-Crawlspace",
-    'AS25': "Kitchen-Crawlspace",
-    'AS26': "Zabriskie - Central-Crawlspace",
-    'AS27': "Apse-Crawlspace",
-    'AS28': "East Transept-Crawlspace",
-    'AS29': "West Organ-Crawlspace",
-    'AS30': "Baptistery-Crawlspace",
-    'AS31': "East Nave-Crawlspace",
-    'AS32': "Women's Robing-Crawlspace",
-    'AS33': "Men's Robing-Crawlspace"
+    'SM01': "Outside Reference",
+    'SM02': "Altar-Main",
+    'SM03': "Chapel-Main",
+    'SM04': "Sanctuary North-Crawlspace",
+    'SM05': "Sanctuary South-Crawlspace",
+    'SM06': "Blank",
+    'SM07': "Blank",
 }
 
 # --- Helper functions ---
 def load_and_clean_csv(path):
     fn = os.path.basename(path)
-    match = re.match(r"(AS\d+)_export_.*\.csv", fn)
+    match = re.match(r"(SM\d+)_export_.*\.csv", fn)
     device = match.group(1) if match else "Unknown"
 
     df = pd.read_csv(path)
