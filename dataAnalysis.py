@@ -153,7 +153,6 @@ def group_ui(group, label):
             label = DEVICE_LABELS.get(d, d)
             st.sidebar.checkbox(label, key=key)
 
-group_ui(attic,      'Attic')
 group_ui(main,       'Main')
 group_ui(crawlspace, 'Crawlspace')
 # Outdoor Reference (no select/deselect buttons)
