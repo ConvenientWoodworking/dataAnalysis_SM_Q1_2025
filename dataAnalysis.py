@@ -9,7 +9,7 @@ import altair as alt
 import streamlit as st
 
 # --- Device name mapping ---
-# Mapping from AS codes to friendly names
+# Mapping from SM codes to friendly names
 DEVICE_LABELS = {
     'SM01': "Outside Reference",
     'SM02': "Altar-Main",
@@ -105,7 +105,7 @@ end_date   = date_cols[1].date_input("End Date", value=datetime.today(), label_v
 
 # Load Data button
 if st.sidebar.button('Load Data'):
-    files = glob.glob(os.path.join(FOLDER, 'AS*_export_*.csv'))
+    files = glob.glob(os.path.join(FOLDER, 'SM*_export_*.csv'))
     device_dfs = {load_and_clean_csv(f)['Device'].iloc[0]: load_and_clean_csv(f) for f in files}
 
     master = max(device_dfs, key=lambda d: len(device_dfs[d]))
@@ -231,7 +231,7 @@ if st.sidebar.button('Analyze'):
         #if 'Outdoor Reference' in selected:
         # Normalized Temperature Difference plot
         st.header('Normalized Temperature Difference')
-        df_out = df[df['Device']=='AS10'][['Timestamp','Temp_F','RH']].rename(columns={'Temp_F':'T_out','RH':'RH_out'})
+        df_out = df[df['Device']=='SM01'][['Timestamp','Temp_F','RH']].rename(columns={'Temp_F':'T_out','RH':'RH_out'})
         df_norm = df.merge(df_out, on='Timestamp')
         df_norm['DeviceName'] = df_norm['Device'].map(DEVICE_LABELS).fillna(df_norm['Device'])
         df_norm['Norm_T']  = df_norm['Temp_F'] - df_norm['T_out']
@@ -250,7 +250,7 @@ if st.sidebar.button('Analyze'):
         )
         st.altair_chart(chart_norm_rh, use_container_width=True)         
         
-        # Corr vs AS10 tables
+        # Corr vs SM10 tables
         st.header('Pearson Corr vs Outdoor Reference (Temp)')
         cvt = compute_correlations(df, field='Temp_F')['Outdoor Reference']
         st.table(cvt.reset_index().rename(columns={'index':'DeviceName','Outdoor-Reference':'Corr'}))
