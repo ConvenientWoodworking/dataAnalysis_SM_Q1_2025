@@ -16,8 +16,6 @@ DEVICE_LABELS = {
     'SM03': "Chapel-Main",
     'SM04': "Sanctuary North-Crawlspace",
     'SM05': "Sanctuary South-Crawlspace",
-    'SM06': "Blank",
-    'SM07': "Blank",
 }
 
 # --- Helper functions ---
@@ -81,8 +79,8 @@ def compute_correlations(df, field='Temp_F'):
     return pivot.corr(method='pearson')
 
 # --- Streamlit App ---
-st.set_page_config(page_title='All Souls Cathedral: Q1 Environmental Data Analysis', layout='wide')
-st.header('All Souls Cathedral: Q1 Environmental Data Analysis')
+st.set_page_config(page_title='St Matthias: Q1 Environmental Data Analysis', layout='wide')
+st.header('St Matthias: Q1 Environmental Data Analysis')
 
 # Sidebar logo
 #logo_path = 'Logo.PNG'
