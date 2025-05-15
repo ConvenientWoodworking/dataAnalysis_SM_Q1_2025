@@ -132,10 +132,9 @@ if st.sidebar.button('Load Data'):
 
 # Device groupings
 devices    = st.session_state.get('devices', [])
-attic      = [f'AS{i:02d}' for i in range(15,24)]
-main       = [f'AS{i:02d}' for i in range(1,15) if i != 10]
-crawlspace = [f'AS{i:02d}' for i in range(24,34)]
-outdoor    = ['AS10']
+main       = [f'SM{i:02d}' for i in range(2,3)]
+crawlspace = [f'SM{i:02d}' for i in range(4,5)]
+outdoor    = ['SM01']
 
 # Grouped checkboxes
 def group_ui(group, label):
