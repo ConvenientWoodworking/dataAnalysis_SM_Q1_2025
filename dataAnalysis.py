@@ -11,7 +11,7 @@ import streamlit as st
 # --- Device name mapping ---
 # Mapping from SM codes to friendly names
 DEVICE_LABELS = {
-    'SM01': "Outside Reference",
+    'SM01': "Outdoor Reference",
     'SM02': "Altar-Main",
     'SM03': "Chapel-Main",
     'SM04': "Sanctuary North-Crawlspace",
