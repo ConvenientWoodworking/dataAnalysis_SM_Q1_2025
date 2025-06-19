@@ -138,8 +138,8 @@ if st.sidebar.button('Load Data'):
 
 # Device groupings
 devices    = st.session_state.get('devices', [])
-main       = [f'SM{i:02d}' for i in range(2,3)]
-crawlspace = [f'SM{i:02d}' for i in range(4,5)]
+main       = [f'SM{i:02d}' for i in range(2,4)]
+crawlspace = [f'SM{i:02d}' for i in range(4,6)]
 outdoor    = ['SM01']
 
 # Grouped checkboxes
