@@ -87,11 +87,11 @@ st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', l
 st.header('St Matthias: 2025 Environmental Data Analysis')
 
 # Sidebar logo
-#logo_path = 'Logo.PNG'
-#if os.path.exists(logo_path):
-#    st.sidebar.image(logo_path, use_container_width=True)
-#else:
-#    st.sidebar.warning(f"Logo not found at {logo_path}")
+logo_path = 'Logo.png'
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path, use_container_width=True)
+else:
+    st.sidebar.warning(f"Logo not found at {logo_path}")
 
 # Settings header
 st.sidebar.title('Settings')
