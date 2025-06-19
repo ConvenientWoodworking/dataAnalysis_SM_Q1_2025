@@ -88,7 +88,7 @@ st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', l
 # Display logo above the title using a path relative to this script so it
 # works regardless of the working directory from which Streamlit is run.
 script_dir = os.path.dirname(os.path.abspath(__file__))
-logo_path = os.path.join(script_dir, "Logo.svg")
+logo_path = os.path.join(script_dir, "Logo.png")
 if os.path.exists(logo_path):
     logoImage = Image.open(logo_path)
     st.image(logoImage)
@@ -99,7 +99,7 @@ st.header('St Matthias: 2025 Environmental Data Analysis')
 
 # Settings header
 st.sidebar.title('Settings')
-#st.sidebar.image("./Logo.svg", use_container_width=True)
+#st.sidebar.image("./Logo.png", use_container_width=True)
 
 # Constants
 FOLDER = './data'
