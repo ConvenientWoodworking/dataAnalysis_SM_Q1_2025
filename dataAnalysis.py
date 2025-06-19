@@ -19,12 +19,16 @@ DEVICE_LABELS = {
 }
 
 # --- Helper functions ---
-def load_and_clean_csv(path):
+def load_and_clean_file(path):
+    """Load a device export file (.csv or .xlsx) and clean column names."""
     fn = os.path.basename(path)
-    match = re.match(r"(SM\d+)_export_.*\.csv", fn)
+    match = re.match(r"(SM\d+)_export_.*\.(csv|xlsx)", fn, re.IGNORECASE)
     device = match.group(1) if match else "Unknown"
 
-    df = pd.read_csv(path)
+    if fn.lower().endswith('.xlsx'):
+        df = pd.read_excel(path)
+    else:
+        df = pd.read_csv(path)
     df = df.rename(columns={
         df.columns[0]: 'Timestamp',
         df.columns[1]: 'Temp_F',
@@ -105,8 +109,10 @@ end_date   = date_cols[1].date_input("End Date", value=datetime.today(), label_v
 
 # Load Data button
 if st.sidebar.button('Load Data'):
-    files = glob.glob(os.path.join(FOLDER, 'SM*_export_*.csv'))
-    device_dfs = {load_and_clean_csv(f)['Device'].iloc[0]: load_and_clean_csv(f) for f in files}
+    pattern_csv = os.path.join(FOLDER, 'SM*_export_*.csv')
+    pattern_xlsx = os.path.join(FOLDER, 'SM*_export_*.xlsx')
+    files = glob.glob(pattern_csv) + glob.glob(pattern_xlsx)
+    device_dfs = {load_and_clean_file(f)['Device'].iloc[0]: load_and_clean_file(f) for f in files}
 
     master = max(device_dfs, key=lambda d: len(device_dfs[d]))
     master_times = device_dfs[master].sort_values('Timestamp')['Timestamp']
