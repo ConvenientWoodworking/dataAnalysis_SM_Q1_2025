@@ -2,7 +2,6 @@ import os
 import re
 import glob
 from datetime import datetime
-from PIL import Image
 
 import pandas as pd
 import numpy as np
@@ -88,10 +87,9 @@ st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', l
 # Display logo above the title using a path relative to this script so it
 # works regardless of the working directory from which Streamlit is run.
 script_dir = os.path.dirname(os.path.abspath(__file__))
-logo_path = os.path.join(script_dir, "Logo.png")
+logo_path = os.path.join(script_dir, "Logo.svg")
 if os.path.exists(logo_path):
-    logoImage = Image.open(logo_path)
-    st.image(logoImage)
+    st.image(logo_path)
 else:
     st.warning(f"Logo not found at {logo_path}")
 
@@ -99,7 +97,7 @@ st.header('St Matthias: 2025 Environmental Data Analysis')
 
 # Settings header
 st.sidebar.title('Settings')
-#st.sidebar.image("./Logo.PNG", use_container_width=True)
+#st.sidebar.image("./Logo.svg", use_container_width=True)
 
 # Constants
 FOLDER = './data'
