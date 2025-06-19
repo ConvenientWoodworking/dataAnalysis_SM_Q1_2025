@@ -83,8 +83,8 @@ def compute_correlations(df, field='Temp_F'):
     return pivot.corr(method='pearson')
 
 # --- Streamlit App ---
-st.set_page_config(page_title='St Matthias: Q1 Environmental Data Analysis', layout='wide')
-st.header('St Matthias: Q1 Environmental Data Analysis')
+st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', layout='wide')
+st.header('St Matthias: 2025 Environmental Data Analysis')
 
 # Sidebar logo
 #logo_path = 'Logo.PNG'
