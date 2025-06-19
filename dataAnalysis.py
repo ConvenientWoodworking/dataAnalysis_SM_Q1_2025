@@ -90,7 +90,8 @@ st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', l
 script_dir = os.path.dirname(os.path.abspath(__file__))
 logo_path = os.path.join(script_dir, "Logo.svg")
 if os.path.exists(logo_path):
-    st.image(logo_path)
+    logoImage = Image.open(logo_path)
+    st.image(logoImage)
 else:
     st.warning(f"Logo not found at {logo_path}")
 
