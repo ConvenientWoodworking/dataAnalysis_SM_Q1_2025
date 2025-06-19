@@ -3,3 +3,4 @@ numpy
 matplotlib
 reportlab
 streamlit
+openpyxl
