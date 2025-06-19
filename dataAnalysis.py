@@ -85,12 +85,12 @@ def compute_correlations(df, field='Temp_F'):
 # --- Streamlit App ---
 st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', layout='wide')
 # Display logo above the title
-script_dir = os.path.dirname(os.path.abspath(__file__))
-logo_path = os.path.join(script_dir, "Logo.png")
-if os.path.exists(logo_path):
-    st.image(logo_path, use_container_width=False)
-else:
-    st.warning(f"Logo not found at {logo_path}")
+#script_dir = os.path.dirname(os.path.abspath(__file__))
+#logo_path = os.path.join(script_dir, "Logo.png")
+#if os.path.exists(logo_path):
+st.image("Logo.png", use_container_width=False)
+#else:
+   # st.warning(f"Logo not found at {logo_path}")
 
 st.header('St Matthias: 2025 Environmental Data Analysis')
 
