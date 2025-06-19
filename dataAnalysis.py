@@ -175,8 +175,8 @@ for d in outdoor:
 
 selected = [d for d in devices if st.session_state.get(f'chk_{d}')]
 
-# Analyze & Display
-if st.sidebar.button('Analyze'):
+# Compile & Display
+if st.sidebar.button('Compile'):
     if 'df_all' not in st.session_state:
         st.error('Please load data first.')
     else:
@@ -278,4 +278,4 @@ if st.sidebar.button('Analyze'):
         st.header('Summary Statistics (Relative Humidity)')
         st.dataframe(compute_summary_stats(df, field='RH'))
 else:
-    st.info("Use 'Load Data' then 'Analyze' to run the full analysis.")
+    st.info("Use 'Load Data' then 'Compile' to display the data plots.")
