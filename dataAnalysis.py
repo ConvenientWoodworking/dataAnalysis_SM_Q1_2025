@@ -87,7 +87,8 @@ st.set_page_config(page_title='St Matthias: 2025 Environmental Data Analysis', l
 st.header('St Matthias: 2025 Environmental Data Analysis')
 
 # Sidebar logo
-logo_path = 'Logo.png'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+logo_path = os.path.join(script_dir, "Logo.png")
 if os.path.exists(logo_path):
     st.sidebar.image(logo_path, use_container_width=True)
 else:
