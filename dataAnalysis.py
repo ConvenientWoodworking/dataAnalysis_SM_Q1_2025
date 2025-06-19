@@ -2,6 +2,7 @@ import os
 import re
 import glob
 from datetime import datetime
+from PIL import Image
 
 import pandas as pd
 import numpy as np
